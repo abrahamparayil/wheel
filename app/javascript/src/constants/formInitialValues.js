@@ -17,4 +17,10 @@ export default {
     title: "",
     description: "",
   },
+  contactsForm: {
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    role: { label: "", value: "" },
+  },
 };
