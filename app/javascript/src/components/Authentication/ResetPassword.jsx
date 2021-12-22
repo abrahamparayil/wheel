@@ -8,7 +8,7 @@ import formInitialValues from "constants/formInitialValues";
 import formValidationSchemas from "constants/formValidationSchemas";
 
 const ResetPassword = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = () => {
     // trigger api call for reset password
@@ -26,8 +26,8 @@ const ResetPassword = () => {
         </div>
         <Formik
           initialValues={formInitialValues.resetPasswordForm}
-          validateOnBlur={submitted}
-          validateOnChange={submitted}
+          validateOnBlur={isSubmitted}
+          validateOnChange={isSubmitted}
           onSubmit={onSubmit}
           validationSchema={formValidationSchemas.resetPasswordForm}
         >
@@ -42,7 +42,7 @@ const ResetPassword = () => {
                   type="submit"
                   onClick={e => {
                     e.preventDefault();
-                    setSubmitted(true);
+                    setIsSubmitted(true);
                     handleSubmit();
                   }}
                   label="Send reset password email"

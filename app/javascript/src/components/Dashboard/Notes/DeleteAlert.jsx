@@ -10,10 +10,10 @@ const DeleteAlert = ({
   selectedNoteIds,
   setSelectedNoteIds,
 }) => {
-  const [deleting, setDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const handleDelete = async () => {
     try {
-      setDeleting(true);
+      setIsDeleting(true);
       await notesApi.destroy({ ids: selectedNoteIds });
       onClose();
       setSelectedNoteIds([]);
@@ -21,7 +21,7 @@ const DeleteAlert = ({
     } catch (error) {
       logger.error(error);
     } finally {
-      setDeleting(false);
+      setIsDeleting(false);
     }
   };
   return (
@@ -31,7 +31,7 @@ const DeleteAlert = ({
       onClose={onClose}
       message="Are you sure you want to continue? This cannot be undone."
       title={`Delete note?`}
-      isSubmitting={deleting}
+      isSubmitting={isDeleting}
     />
   );
 };

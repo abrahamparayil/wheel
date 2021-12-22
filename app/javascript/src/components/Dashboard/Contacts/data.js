@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MenuVertical } from "@bigbinary/neeto-icons";
+import { MenuVertical } from "neetoicons";
 import { Avatar, Dropdown } from "neetoui/v2";
 
 export const columnData = setShowDeleteAlert => [

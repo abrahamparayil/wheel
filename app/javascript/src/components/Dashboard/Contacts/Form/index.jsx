@@ -4,12 +4,10 @@ import { Formik, Form } from "formik";
 import { Button, Pane, Toastr } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
-import formValidationSchemas from "constants/formValidationSchemas";
+import { SELECT_OPTIONS, VALIDATION_SCHEMA, INITIAL_VALUES } from "./constants";
 
-import { SELECT_OPTIONS } from "./constants";
-
-export default function ContactForm({ isEdit, contact, onClose }) {
-  const [submitted, setSubmitted] = useState(false);
+export default function ContactForm({ isEdit, onClose }) {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = () => {
     onClose();
     Toastr.success("Contact was successfully created.");
@@ -17,11 +15,11 @@ export default function ContactForm({ isEdit, contact, onClose }) {
 
   return (
     <Formik
-      initialValues={contact}
+      initialValues={INITIAL_VALUES}
       onSubmit={handleSubmit}
-      validateOnBlur={submitted}
-      validateOnChange={submitted}
-      validationSchema={formValidationSchemas.contactsForm}
+      validateOnBlur={isSubmitted}
+      validateOnChange={isSubmitted}
+      validationSchema={VALIDATION_SCHEMA}
     >
       {({ isSubmitting, handleSubmit }) => {
         return (
@@ -32,20 +30,17 @@ export default function ContactForm({ isEdit, contact, onClose }) {
                   label="First Name"
                   name="firstName"
                   className="flex-grow-0 w-full"
-                  required
                 />
                 <Input
                   label="Last Name"
                   name="lastName"
                   className="flex-grow-0 w-full"
-                  required
                 />
               </div>
               <Input
                 label="Email Address"
                 name="emailAddress"
                 className="flex-grow-0 w-full"
-                required
               />
               <Select
                 name="role"
@@ -66,7 +61,7 @@ export default function ContactForm({ isEdit, contact, onClose }) {
                 loading={isSubmitting}
                 onClick={e => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setIsSubmitted(true);
                   handleSubmit();
                 }}
               />

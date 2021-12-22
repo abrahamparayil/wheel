@@ -17,7 +17,7 @@ import { useAuthState, useAuthDispatch } from "contexts/auth";
 import { useUserDispatch, useUserState } from "contexts/user";
 
 const Main = props => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const { authToken } = useAuthState();
   const { user: userContextState } = useUserState();
   const userDispatch = useUserDispatch();
@@ -32,10 +32,10 @@ const Main = props => {
     userDispatch({ type: "SET_USER", payload: { user: props?.user } });
     initializeLogger();
     registerIntercepts(authDispatch);
-    setAuthHeaders(setLoading);
+    setAuthHeaders(setIsLoading);
   }, [authDispatch, props?.user, userDispatch]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="h-screen">
         <PageLoader />

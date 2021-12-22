@@ -4,7 +4,7 @@ import { Table } from "neetoui/v2";
 
 import { columnData, ROW_DATA } from "./data";
 
-export default function ContactTable({ setShowDeleteAlert }) {
+export default function ContactsList({ setShowDeleteAlert }) {
   return (
     <div className="mx-auto contacts-table-height w-11/12">
       <Table
