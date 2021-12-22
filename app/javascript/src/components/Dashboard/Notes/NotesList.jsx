@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import { Clock, MenuVertical } from "@bigbinary/neeto-icons";
+import { Clock, MenuVertical } from "neetoicons";
 import { Tag, Label, Avatar, Dropdown } from "neetoui/v2";
 
 import EditNotePane from "./Pane/EditNote";
 
-export default function NoteTable({ setShowDeleteAlert }) {
+export default function NotesList({ setShowDeleteAlert }) {
   const [showEditNote, setShowEditNote] = useState(false);
   return (
     <>

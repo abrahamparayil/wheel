@@ -10,7 +10,7 @@ import EmptyState from "components/Common/EmptyState";
 
 import DeleteAlert from "./DeleteAlert";
 import Filter from "./Filter";
-import NoteTable from "./NoteTable";
+import NotesList from "./NotesList";
 import NewNotePane from "./Pane/CreateNote";
 
 const Notes = () => {
@@ -65,7 +65,7 @@ const Notes = () => {
           }
         />
         {notes.length ? (
-          <NoteTable setShowDeleteAlert={setShowDeleteAlert} />
+          <NotesList setShowDeleteAlert={setShowDeleteAlert} />
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
