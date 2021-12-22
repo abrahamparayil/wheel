@@ -9,7 +9,7 @@ import formValidationSchemas from "constants/formValidationSchemas";
 import { SELECT_OPTIONS } from "./constants";
 
 export default function ContactForm({ isEdit, contact, onClose }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = () => {
     onClose();
     Toastr.success("Contact was successfully created.");
@@ -19,8 +19,8 @@ export default function ContactForm({ isEdit, contact, onClose }) {
     <Formik
       initialValues={contact}
       onSubmit={handleSubmit}
-      validateOnBlur={submitted}
-      validateOnChange={submitted}
+      validateOnBlur={isSubmitted}
+      validateOnChange={isSubmitted}
       validationSchema={formValidationSchemas.contactsForm}
     >
       {({ isSubmitting, handleSubmit }) => {
@@ -66,7 +66,7 @@ export default function ContactForm({ isEdit, contact, onClose }) {
                 loading={isSubmitting}
                 onClick={e => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setIsSubmitted(true);
                   handleSubmit();
                 }}
               />

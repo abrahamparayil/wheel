@@ -10,14 +10,14 @@ import formInitialValues from "constants/formInitialValues";
 import formValidationSchemas from "constants/formValidationSchemas";
 
 const Signup = ({ history }) => {
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async formData => {
     const { email, firstName, lastName, password, passwordConfirmation } =
       formData;
     try {
-      setLoading(true);
+      setIsLoading(true);
       await authenticationApi.signup({
         user: {
           email,
@@ -32,7 +32,7 @@ const Signup = ({ history }) => {
     } catch (error) {
       logger.error(error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -44,8 +44,8 @@ const Signup = ({ history }) => {
         </h2>
         <Formik
           initialValues={formInitialValues.signupForm}
-          validateOnBlur={submitted}
-          validateOnChange={submitted}
+          validateOnBlur={isSubmitted}
+          validateOnChange={isSubmitted}
           onSubmit={onSubmit}
           validationSchema={formValidationSchemas.signupForm}
         >
@@ -90,11 +90,11 @@ const Signup = ({ history }) => {
                 type="submit"
                 onClick={e => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setIsSubmitted(true);
                   handleSubmit();
                 }}
                 className="h-8"
-                loading={loading}
+                loading={isLoading}
                 label="Signup"
                 fullWidth
               />

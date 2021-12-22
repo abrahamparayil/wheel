@@ -10,7 +10,7 @@ import { useUserState } from "contexts/user";
 
 const Profile = () => {
   const { user } = useUserState();
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = () => {
     // submit form
@@ -28,8 +28,8 @@ const Profile = () => {
             password: "",
           }}
           onSubmit={onSubmit}
-          validateOnBlur={submitted}
-          validateOnChange={submitted}
+          validateOnBlur={isSubmitted}
+          validateOnChange={isSubmitted}
           validationSchema={formValidationSchemas.profileForm}
         >
           {({ handleSubmit }) => (
@@ -47,7 +47,7 @@ const Profile = () => {
                 type="submit"
                 onClick={e => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setIsSubmitted(true);
                   handleSubmit();
                 }}
                 label="Update"

@@ -13,15 +13,15 @@ import { useAuthDispatch } from "contexts/auth";
 import { useUserDispatch } from "contexts/user";
 
 const Login = ({ history }) => {
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const authDispatch = useAuthDispatch();
   const userDispatch = useUserDispatch();
 
   const onSubmit = async ({ email, password }) => {
     try {
-      setLoading(true);
+      setIsLoading(true);
       const {
         data: { auth_token, user, is_admin },
       } = await authenticationApi.login({ user: { email, password } });
@@ -33,7 +33,7 @@ const Login = ({ history }) => {
     } catch (error) {
       logger.error(error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -45,8 +45,8 @@ const Login = ({ history }) => {
         </h2>
         <Formik
           initialValues={formInitialValues.loginForm}
-          validateOnBlur={submitted}
-          validateOnChange={submitted}
+          validateOnBlur={isSubmitted}
+          validateOnChange={isSubmitted}
           onSubmit={onSubmit}
           validationSchema={formValidationSchemas.loginForm}
         >
@@ -72,10 +72,10 @@ const Login = ({ history }) => {
                 type="submit"
                 onClick={e => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setIsSubmitted(true);
                   handleSubmit();
                 }}
-                loading={loading}
+                loading={isLoading}
                 fullWidth
                 className="h-8"
                 label="Login"

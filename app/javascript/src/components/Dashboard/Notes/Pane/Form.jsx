@@ -10,10 +10,10 @@ import formValidationSchemas from "constants/formValidationSchemas";
 import { SELECT_OPTIONS } from "./constants";
 
 export default function NoteForm({ onClose, refetch, note, isEdit }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = async values => {
     try {
-      setSubmitted(true);
+      setIsSubmitted(true);
       if (isEdit) {
         await notesApi.update(note.id, values);
       } else {
@@ -30,8 +30,8 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
     <Formik
       initialValues={note}
       onSubmit={handleSubmit}
-      validateOnBlur={submitted}
-      validateOnChange={submitted}
+      validateOnBlur={isSubmitted}
+      validateOnChange={isSubmitted}
       validationSchema={formValidationSchemas.notesForm}
     >
       {({ isSubmitting, handleSubmit }) => (
@@ -75,7 +75,7 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               loading={isSubmitting}
               onClick={e => {
                 e.preventDefault();
-                setSubmitted(true);
+                setIsSubmitted(true);
                 handleSubmit();
               }}
             />

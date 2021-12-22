@@ -6,7 +6,7 @@ import { Tag, Label, Avatar, Dropdown } from "neetoui/v2";
 import EditNotePane from "./Pane/EditNote";
 
 export default function NotesList({ setShowDeleteAlert }) {
-  const [showEditNote, setShowEditNote] = useState(false);
+  const [isEditNotePaneOpen, setIsEditNotePaneOpen] = useState(false);
   return (
     <>
       <div className="m-4 w-full notes-table-height">
@@ -60,7 +60,10 @@ export default function NotesList({ setShowDeleteAlert }) {
           </div>
         ))}
       </div>
-      <EditNotePane showPane={showEditNote} setShowPane={setShowEditNote} />
+      <EditNotePane
+        showPane={isEditNotePaneOpen}
+        setShowPane={setIsEditNotePaneOpen}
+      />
     </>
   );
 }
