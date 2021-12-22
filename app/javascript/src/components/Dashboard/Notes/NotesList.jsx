@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Card from "components/Common/Card";
 
 import { CARD_DATA } from "./constants";
-import EditNotePane from "./Pane/EditNote";
+import EditNotePane from "./EditNote";
 
 export default function NotesList({ setShowDeleteAlert }) {
   const [isEditNotePaneOpen, setIsEditNotePaneOpen] = useState(false);

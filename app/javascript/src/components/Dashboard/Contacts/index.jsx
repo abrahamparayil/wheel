@@ -9,9 +9,9 @@ import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
 import ContactTable from "./ContactTable";
+import NewContactPane from "./CreateContact";
 import DeleteAlert from "./DeleteAlert";
 import Filter from "./Filter";
-import NewContactPane from "./Pane/CreateContact";
 
 const Contacts = () => {
   const [isLoading, setIsLoading] = useState(true);

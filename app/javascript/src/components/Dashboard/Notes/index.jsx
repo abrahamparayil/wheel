@@ -8,10 +8,10 @@ import { Header } from "neetoui/v2/layouts";
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
+import NewNotePane from "./CreateNote";
 import DeleteAlert from "./DeleteAlert";
 import Filter from "./Filter";
 import NotesList from "./NotesList";
-import NewNotePane from "./Pane/CreateNote";
 
 const Notes = () => {
   const [isLoading, setIsLoading] = useState(true);
