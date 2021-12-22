@@ -8,7 +8,7 @@ import { Header } from "neetoui/v2/layouts";
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
-import ContactTable from "./ContactTable";
+import ContactsList from "./ContactsList";
 import NewContactPane from "./CreateContact";
 import DeleteAlert from "./DeleteAlert";
 import Filter from "./Filter";
@@ -65,7 +65,7 @@ const Contacts = () => {
           }
         />
         {notes.length ? (
-          <ContactTable setShowDeleteAlert={setIsDeleteAlertOpen} />
+          <ContactsList setShowDeleteAlert={setIsDeleteAlertOpen} />
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
