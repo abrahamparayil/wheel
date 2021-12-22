@@ -37,17 +37,11 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
       {({ isSubmitting, handleSubmit }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
-            <Input
-              label="Title"
-              name="title"
-              className="flex-grow-0 w-full"
-              required
-            />
+            <Input label="Title" name="title" className="flex-grow-0 w-full" />
             <Input
               label="Description"
               name="description"
               className="flex-grow-0 w-full"
-              required
             />
             <Select
               name="asignedContact"

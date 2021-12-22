@@ -32,20 +32,17 @@ export default function ContactForm({ isEdit, contact, onClose }) {
                   label="First Name"
                   name="firstName"
                   className="flex-grow-0 w-full"
-                  required
                 />
                 <Input
                   label="Last Name"
                   name="lastName"
                   className="flex-grow-0 w-full"
-                  required
                 />
               </div>
               <Input
                 label="Email Address"
                 name="emailAddress"
                 className="flex-grow-0 w-full"
-                required
               />
               <Select
                 name="role"
