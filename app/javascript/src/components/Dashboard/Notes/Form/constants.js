@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 export const SELECT_OPTIONS = [
   {
     label: "Getting Started",
@@ -24,3 +26,13 @@ export const SELECT_OPTIONS = [
     id: "v2",
   },
 ];
+
+export const VALIDATION_SCHEMA = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+  description: Yup.string().required("Description is required"),
+});
+
+export const INITIAL_VALUES = {
+  title: "",
+  description: "",
+};

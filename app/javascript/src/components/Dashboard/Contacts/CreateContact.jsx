@@ -2,8 +2,6 @@ import React from "react";
 
 import { Pane, Typography } from "neetoui/v2";
 
-import formInitialValues from "constants/formInitialValues";
-
 import Form from "./Form";
 
 export default function NewContactPane({
@@ -19,12 +17,7 @@ export default function NewContactPane({
           Add New Contact
         </Typography>
       </Pane.Header>
-      <Form
-        onClose={onClose}
-        refetch={fetchContacts}
-        contact={formInitialValues.contactsForm}
-        isEdit={false}
-      />
+      <Form onClose={onClose} refetch={fetchContacts} isEdit={false} />
     </Pane>
   );
 }

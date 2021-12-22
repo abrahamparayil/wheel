@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
-import { Button, Pane, Select } from "neetoui/v2";
-import { Input } from "neetoui/v2/formik";
+import { Button, Pane } from "neetoui/v2";
+import { Input, Select } from "neetoui/v2/formik";
 
 import notesApi from "apis/notes";
-import formValidationSchemas from "constants/formValidationSchemas";
 
-import { SELECT_OPTIONS } from "./constants";
+import { SELECT_OPTIONS, VALIDATION_SCHEMA, INITIAL_VALUES } from "./constants";
 
 export default function NoteForm({ onClose, refetch, note, isEdit }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -28,11 +27,11 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
 
   return (
     <Formik
-      initialValues={note}
+      initialValues={INITIAL_VALUES}
       onSubmit={handleSubmit}
       validateOnBlur={isSubmitted}
       validateOnChange={isSubmitted}
-      validationSchema={formValidationSchemas.notesForm}
+      validationSchema={VALIDATION_SCHEMA}
     >
       {({ isSubmitting, handleSubmit }) => (
         <Form className="w-full">

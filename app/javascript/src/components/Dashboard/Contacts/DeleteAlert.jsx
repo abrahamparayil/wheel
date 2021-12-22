@@ -6,7 +6,7 @@ const DeleteAlert = ({ onClose }) => {
   const deleting = false;
   const handleDelete = () => {
     onClose();
-    Toastr.success("Contact was successfully created.");
+    Toastr.success("Contact was successfully deleted.");
   };
   return (
     <Alert
